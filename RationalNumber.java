@@ -9,29 +9,6 @@ public class RationalNumber extends RealNumber {
 	public String toString() {
 		return "Ratio = " + numr + " / " + denomr;
 	}
-	public int getNumerator() {
-		return numr;
-	}
-	public int getDenominator() {
-		return denomr;
-	}
-	public double getValue() {
-		return numr / denomr;
-	}
-	public void changeNumr(int nn) {
-		numr = nn;
-	}
-	public void changeDenomr(int nd) {
-		denomr = nd;
-	}
-	public RationalNumber reciprocal() {
-		RationalNumber b = new RationalNumber(denomr, numr);
-		return b;
-	}
-	public boolean equals(RationalNumber other) {
-		return this.getValue == other.getValue;
-	}
-	
 	private static int gcd(int a, int b) {
 		if(a == 1 || b == 1 || a == 0 || b == 0){return 1;}
 		if(a == b){return a;}
@@ -57,10 +34,37 @@ public class RationalNumber extends RealNumber {
 			}
 			return a;
 		}
+		else{return 0;}
 	}
 	
 	public void reduce() {
 		numr = numr / gcd(numr, denomr);
 		denomr = denomr / gcd(numr, denomr);
 	}
+	
+	
+	public int getNumerator() {
+		return numr;
+	}
+	public int getDenominator() {
+		return denomr;
+	}
+	public double getValue() {
+		return numr / denomr;
+	}
+	public void changeNumr(int nn) {
+		numr = nn;
+	}
+	public void changeDenomr(int nd) {
+		denomr = nd;
+	}
+	public RationalNumber reciprocal() {
+		RationalNumber b = new RationalNumber(denomr, numr);
+		return b;
+	}
+	public boolean equals(RationalNumber other) {
+		return this.getValue() == other.getValue();
+	}
+	
+	
 }

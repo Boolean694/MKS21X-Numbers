@@ -9,19 +9,19 @@ public class RealNumber {
 	public double getValue() {
 		return val;
 	}
-	public void changeVal(double nv) {
+	public void changeValue(double nv) {
 		val = nv;
 	}
 	public double add(RealNumber other) {
-		return val + other.getVal();
+		return val + other.getValue();
 	}
 	public double multiply(RealNumber other) {
-		return val * other.getVal();
+		return val * other.getValue();
 	}
 	public double divide(RealNumber other) {
-		return val / other.getVal();
+		return val / other.getValue();
 	}
 	public double subtract(RealNumber other) {
-		return val - other.getVal();
+		return val - other.getValue();
 	}
 }
