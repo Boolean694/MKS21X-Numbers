@@ -4,12 +4,24 @@ public class RealNumber {
 		val = value;
 	}
 	public String toString() {
-		return "Value = " + val;
+		return "" + val;
 	}
-	public double getVal() {
+	public double getValue() {
 		return val;
 	}
 	public void changeVal(double nv) {
 		val = nv;
+	}
+	public double add(RealNumber other) {
+		return val + other.getVal();
+	}
+	public double multiply(RealNumber other) {
+		return val * other.getVal();
+	}
+	public double divide(RealNumber other) {
+		return val / other.getVal();
+	}
+	public double subtract(RealNumber other) {
+		return val - other.getVal();
 	}
 }
