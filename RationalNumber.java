@@ -2,19 +2,25 @@ public class RationalNumber extends RealNumber {
 	private int numr;
 	private int denomr;
 	public RationalNumber(int n, int d) {
-		super(n / d);
-		numr = n;
-		denomr = d;
+		super(0.0);
+		if(d == 0) {
+			numr = 0;
+			denomr = 1;
+		}
+		else {
+			numr = n;
+			denomr = d;
+		}
 	}
 	public String toString() {
-		return "Ratio = " + numr + " / " + denomr;
+		return "" + numr + " / " + denomr;
 	}
 	private static int gcd(int a, int b) {
 		if(a == 1 || b == 1 || a == 0 || b == 0){return 1;}
 		if(a == b){return a;}
 		if(a > b) {
-			int dd = a;
-			int ds = b;
+			int dd = Math.abs(a);
+			int ds = Math.abs(b);
 			int ph = 0;
 			while(a % b != 0) {
 				ph = b;
@@ -24,8 +30,8 @@ public class RationalNumber extends RealNumber {
 			return b;
 		}
 		if(a < b) {
-			int dd = b;
-			int ds = a;
+			int dd = Math.abs(b);
+			int ds = Math.abs(a);
 			int ph = 0;
 			while(b % a != 0) {
 				ph = a;
@@ -38,8 +44,10 @@ public class RationalNumber extends RealNumber {
 	}
 	
 	public void reduce() {
-		numr = numr / gcd(numr, denomr);
-		denomr = denomr / gcd(numr, denomr);
+		int np = numr;
+		int dp = denomr;
+		numr = np / gcd(np, dp);
+		denomr = dp / gcd(np, dp);
 	}
 	
 	
@@ -59,7 +67,9 @@ public class RationalNumber extends RealNumber {
 		denomr = nd;
 	}
 	public RationalNumber reciprocal() {
-		RationalNumber b = new RationalNumber(denomr, numr);
+		RationalNumber b;
+		if(numr == 0){b = new RationalNumber(0,1);}
+		b = new RationalNumber(denomr, numr);
 		return b;
 	}
 	public boolean equals(RationalNumber other) {

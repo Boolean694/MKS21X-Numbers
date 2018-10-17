@@ -5,8 +5,12 @@ public class Driver {
 		RationalNumber rata = new RationalNumber(3, 4);
 		RationalNumber ratb = new RationalNumber(12, 16);
 		
-		System.out.println("reala val: " + reala.getValue());
-		System.out.println("realb val: " + realb.getValue());
+		
+		System.out.println(reala);
+		System.out.println(rata);
+		System.out.println(rata.equals(ratb));
+		ratb.reduce();
+		System.out.println(ratb);
 		
 	}
 }
